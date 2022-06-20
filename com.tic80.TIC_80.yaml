@@ -5,6 +5,7 @@ runtime-version: '21.08'
 command: tic80
 rename-desktop-file: tic80.desktop
 finish-args:
+  - --share=network
   - --share=ipc
   - --socket=wayland
   - --socket=fallback-x11
