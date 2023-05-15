@@ -10,6 +10,7 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --socket=pulseaudio
+  - --filesystem=home
   - --device=all
 modules:
   - name: TIC-80
