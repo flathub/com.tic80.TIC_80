@@ -26,6 +26,10 @@
            takes place under some technical limitations: 240x136 pixel display,
            16 color palette, 256 8x8 color sprites, 4 channel sound, etc.
         </p>
+        <p>
+           Note: Access to all devices permission required (--device=all) so that
+           gamepads can be used with this Flatpak.
+        </p>
     </description>
     <url type="homepage">https://tic80.com/</url>
     <url type="help">https://github.com/nesbox/TIC-80/wiki</url>
