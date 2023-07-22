@@ -27,6 +27,7 @@ modules:
         url: https://github.com/nesbox/TIC-80.git
         tag: v1.0.2164
         commit: b09c50c61f2e8f66959ee9539e5a05feaeaf8ae1
+        disable-shallow-clone: true
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
