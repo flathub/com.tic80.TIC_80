@@ -25,8 +25,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/nesbox/TIC-80.git
-        tag: v1.0.2164
-        commit: b09c50c61f2e8f66959ee9539e5a05feaeaf8ae1
+        tag: v1.1.2729
+        commit: 20dcf5900adac44d4def7ea09a50209676b97e62
         disable-shallow-clone: true
         x-checker-data:
           type: git
