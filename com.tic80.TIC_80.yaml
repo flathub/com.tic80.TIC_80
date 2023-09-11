@@ -1,6 +1,6 @@
 app-id: com.tic80.TIC_80
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 command: tic80
 rename-desktop-file: tic80.desktop
