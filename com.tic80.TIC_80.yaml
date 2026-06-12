@@ -1,6 +1,6 @@
 app-id: com.tic80.TIC_80
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: tic80
 rename-desktop-file: tic80.desktop
@@ -16,6 +16,9 @@ modules:
   - name: TIC-80
     buildsystem: cmake-ninja
     builddir: true
+    config-opts:
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+      - -DSDL_PIPEWIRE=OFF
     post-install:
       - install -Dm0644 /app/share/icons/tic80.png /app/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png
       - desktop-file-edit --remove-category=education ${FLATPAK_DEST}/share/applications/tic80.desktop
@@ -28,8 +31,99 @@ modules:
         tag: v1.1.2837
         commit: be42d6f146cfa520b9b1050feba10cc8c14fb3bd
         disable-shallow-clone: true
+        disable-submodules: true
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
+      - type: git
+        url: https://github.com/nesbox/blip-buf.git
+        commit: 330226d9b55ecbeea644e17b5e0f096a165ca07e
+        dest: vendor/blip-buf
+      - type: git
+        url: https://github.com/tronkko/dirent.git
+        commit: c885633e126a3a949ec0497273ec13e2c03e862c
+        dest: vendor/dirent
+      - type: git
+        url: https://github.com/nesbox/giflib.git
+        commit: 1aa11b06d0025eda77b56aec8254130654d4397b
+        dest: vendor/giflib
+      - type: git
+        url: https://github.com/nesbox/lpeg.git
+        commit: 73d8614a8dea404cf7bfe25a6e4cea7183dc9fb7
+        dest: vendor/lpeg
+      - type: git
+        url: https://github.com/lua/lua.git
+        commit: 75ea9ccbea7c4886f30da147fb67b693b2624c26
+        dest: vendor/lua
+      - type: git
+        url: https://github.com/grimfang4/sdl-gpu.git
+        commit: e3d350b325a0e0d0b3007f69ede62313df46c6ef
+        dest: vendor/sdl-gpu
+      - type: git
+        url: https://github.com/floooh/sokol.git
+        commit: 487822d82ca79dba7b67718d962e1ba6beef01b2
+        dest: vendor/sokol
+      - type: git
+        url: https://github.com/albertodemichelis/squirrel.git
+        commit: 9dcf74f99097898dd5a111c4a55b89d1c4d606c0
+        dest: vendor/squirrel
+      - type: git
+        url: https://github.com/wren-lang/wren.git
+        commit: 4a18fc489f9ea3d253b20dd40f4cdad0d6bb40eb
+        dest: vendor/wren
+      - type: git
+        url: https://github.com/madler/zlib.git
+        commit: cacf7f1d4e3d44d871b605da3b647f07d718623f
+        dest: vendor/zlib
+      - type: git
+        url: https://github.com/kuba--/zip.git
+        commit: d7df626f3aa457e01669f65e61bf8f484e352941
+        dest: vendor/zip
+      - type: git
+        url: https://github.com/nesbox/moonscript.git
+        commit: 17179283012b392bff972ad66231d73bfeec6e90
+        dest: vendor/moonscript
+      - type: git
+        url: https://github.com/cofyc/argparse.git
+        commit: 0d5f5d0745df14a3f373f7eed85bf524714f4524
+        dest: vendor/argparse
+      - type: git
+        url: https://github.com/glennrp/libpng.git
+        commit: dbe3e0c43e549a1602286144d94b0666549b18e6
+        dest: vendor/libpng
+      - type: git
+        url: https://github.com/libsdl-org/SDL.git
+        commit: f070c83a6059c604cbd098680ddaee391b0a7341
+        dest: vendor/sdl2
+      - type: git
+        url: https://github.com/mruby/mruby.git
+        commit: 7fe6f3976eca19a86fe533deb4c60b31cd80a236
+        dest: vendor/mruby
+      - type: git
+        url: https://github.com/wasm3/wasm3.git
+        commit: 8523770b80ea1f78afcac21d837f9dfd50f0bed6
+        dest: vendor/wasm3
+      - type: git
+        url: https://github.com/janet-lang/janet.git
+        commit: 169bd812c9183865b2399a8eaeab6aad238856c5
+        dest: vendor/janet
+      - type: git
+        url: https://github.com/blueloveTH/pocketpy
+        commit: 7312afdad24bb308037088d34b32ed0078fed7d2
+        dest: vendor/pocketpy
+      - type: archive
+        url: https://github.com/nesbox/quickjs/archive/b7c0161f2ad1360f0837abafc6abf0edb82c0fa7.zip
+        sha256: 637477dc524ff474d043e1c6861869d530e9a419280c997e2a7e6336bdf5b3bd
+        dest: vendor/quickjs
+        strip-components: 1
+      - type: git
+        url: https://github.com/erkkah/naett.git
+        commit: 10a9624456829e5f2b4c264e14760301125d12eb
+        dest: vendor/naett
+      - type: archive
+        url: https://github.com/notnullnotvoid/msf_gif/archive/7829c8f439d013deeb54eba94761403e1da2a960.zip
+        sha256: 29b800e319bc5f171f59d7d56fcd6ec41f78d99fd6f96cdb7384ef54f8184c56
+        dest: vendor/msf_gif
+        strip-components: 1
       - type: file
         path: com.tic80.TIC_80.metainfo.xml
