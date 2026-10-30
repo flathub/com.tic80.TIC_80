@@ -28,8 +28,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/nesbox/TIC-80.git
-        tag: v1.1.2837
-        commit: be42d6f146cfa520b9b1050feba10cc8c14fb3bd
+        tag: v1.4.1
+        commit: b3dbd597eecfe6742f64001c2fe5ba6c1afe55d9
         disable-shallow-clone: true
         disable-submodules: true
         x-checker-data:
@@ -112,7 +112,8 @@ modules:
         commit: 7312afdad24bb308037088d34b32ed0078fed7d2
         dest: vendor/pocketpy
       - type: archive
-        url: https://github.com/nesbox/quickjs/archive/b7c0161f2ad1360f0837abafc6abf0edb82c0fa7.zip
+        url: 
+          https://github.com/nesbox/quickjs/archive/b7c0161f2ad1360f0837abafc6abf0edb82c0fa7.zip
         sha256: 637477dc524ff474d043e1c6861869d530e9a419280c997e2a7e6336bdf5b3bd
         dest: vendor/quickjs
         strip-components: 1
@@ -121,7 +122,8 @@ modules:
         commit: 10a9624456829e5f2b4c264e14760301125d12eb
         dest: vendor/naett
       - type: archive
-        url: https://github.com/notnullnotvoid/msf_gif/archive/7829c8f439d013deeb54eba94761403e1da2a960.zip
+        url: 
+          https://github.com/notnullnotvoid/msf_gif/archive/7829c8f439d013deeb54eba94761403e1da2a960.zip
         sha256: 29b800e319bc5f171f59d7d56fcd6ec41f78d99fd6f96cdb7384ef54f8184c56
         dest: vendor/msf_gif
         strip-components: 1
