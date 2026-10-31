@@ -1,14 +1,19 @@
 app-id: com.tic80.TIC_80
 runtime: org.freedesktop.Platform
-runtime-version: '25.08'
+runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
 command: tic80
 rename-desktop-file: tic80.desktop
+rename-mime-file: tic80.xml
+rename-mime-icons:
+  - application-x-tic80-item
+cleanup:
+  - /share/icons/hicolor/256x256/apps/tic80.png
 finish-args:
   - --share=network
   - --share=ipc
   - --socket=wayland
-  - --socket=fallback-x11
+  - --socket=x11
   - --socket=pulseaudio
   - --filesystem=home
   - --device=all
@@ -18,9 +23,8 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
-      - -DSDL_PIPEWIRE=OFF
     post-install:
-      - install -Dm0644 /app/share/icons/tic80.png /app/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png
+      - install -Dm0644 ${FLATPAK_DEST}/share/icons/hicolor/256x256/apps/tic80.png ${FLATPAK_DEST}/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png
       - desktop-file-edit --remove-category=education ${FLATPAK_DEST}/share/applications/tic80.desktop
       - desktop-file-edit --add-category=Education ${FLATPAK_DEST}/share/applications/tic80.desktop
       - desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/tic80.desktop
@@ -28,8 +32,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/nesbox/TIC-80.git
-        tag: v1.1.2837
-        commit: be42d6f146cfa520b9b1050feba10cc8c14fb3bd
+        tag: v1.4.1
+        commit: b3dbd597eecfe6742f64001c2fe5ba6c1afe55d9
         disable-shallow-clone: true
         disable-submodules: true
         x-checker-data:
@@ -61,7 +65,7 @@ modules:
         dest: vendor/sdl-gpu
       - type: git
         url: https://github.com/floooh/sokol.git
-        commit: 487822d82ca79dba7b67718d962e1ba6beef01b2
+        commit: 2e75443dbd4940b5aa8d76a8e479f8e4b270b9a3
         dest: vendor/sokol
       - type: git
         url: https://github.com/albertodemichelis/squirrel.git
@@ -118,8 +122,12 @@ modules:
         strip-components: 1
       - type: git
         url: https://github.com/erkkah/naett.git
-        commit: 10a9624456829e5f2b4c264e14760301125d12eb
+        commit: 5f695cfa9fcbf30668a4d3ac4b4abf1cd89a1302
         dest: vendor/naett
+      - type: git
+        url: https://github.com/zserge/jsmn.git
+        commit: 25647e692c7906b96ffd2b05ca54c097948e879c
+        dest: vendor/jsmn
       - type: archive
         url: https://github.com/notnullnotvoid/msf_gif/archive/7829c8f439d013deeb54eba94761403e1da2a960.zip
         sha256: 29b800e319bc5f171f59d7d56fcd6ec41f78d99fd6f96cdb7384ef54f8184c56
